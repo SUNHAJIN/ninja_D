@@ -31,6 +31,3 @@ jobs:
       - name: Test python project
         run: |
           poetry run python manage.py test
-
-
-ddd
