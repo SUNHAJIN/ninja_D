@@ -15,6 +15,8 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 from typing import List
 
+import pymysql
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
@@ -74,11 +76,16 @@ WSGI_APPLICATION = "ninja_D.wsgi.application"
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
+pymysql.install_as_MySQLdb()
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+        "ENGINE": "django.db.backends.mysql",
+        "NAME": "ninja_D",
+        "USER": "root",
+        "PASSWORD": "0000",
+        "HOST": "localhost",
+        "PORT": "3306",
     }
 }
 
@@ -107,7 +114,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = "en-us"
 
-TIME_ZONE = "UTC"
+TIME_ZONE = "Asia/Seoul"
 
 USE_I18N = True
 
